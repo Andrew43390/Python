@@ -1,0 +1,10 @@
+2025-07-24 14:44:58,657 - INFO - Moved: C:\Users\james\Desktop\Network\New Text Document.txt -> C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\.\New Text Document.txt
+2025-07-24 14:45:05,572 - INFO - Moved: C:\Users\james\Desktop\Network\archive_unwanted\my_ci_cd_app.zip -> C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\archive_unwanted\my_ci_cd_app.zip
+2025-07-24 14:45:07,806 - INFO - Moved: C:\Users\james\Desktop\Network\archive_unwanted\New Text Document.txt -> C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\archive_unwanted\New Text Document.txt
+2025-07-24 14:45:08,810 - INFO - Moved: C:\Users\james\Desktop\Network\archive_unwanted\Prompt.txt -> C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\archive_unwanted\Prompt.txt
+2025-07-24 14:45:09,446 - INFO - Moved: C:\Users\james\Desktop\Network\my_ci_cd_app\my_ci_cd_app.zip -> C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\my_ci_cd_app\my_ci_cd_app.zip
+2025-07-24 14:45:10,024 - INFO - Undo: C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\.\New Text Document.txt -> C:\Users\james\Desktop\Network\New Text Document.txt
+2025-07-24 14:45:10,030 - INFO - Undo: C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\archive_unwanted\my_ci_cd_app.zip -> C:\Users\james\Desktop\Network\archive_unwanted\my_ci_cd_app.zip
+2025-07-24 14:45:10,046 - INFO - Undo: C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\archive_unwanted\New Text Document.txt -> C:\Users\james\Desktop\Network\archive_unwanted\New Text Document.txt
+2025-07-24 14:45:10,064 - INFO - Undo: C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\archive_unwanted\Prompt.txt -> C:\Users\james\Desktop\Network\archive_unwanted\Prompt.txt
+2025-07-24 14:45:10,080 - INFO - Undo: C:\Users\james\Desktop\Network\archive_unwanted_20250724_144442\my_ci_cd_app\my_ci_cd_app.zip -> C:\Users\james\Desktop\Network\my_ci_cd_app\my_ci_cd_app.zip

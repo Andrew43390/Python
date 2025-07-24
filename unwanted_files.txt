@@ -1,0 +1,4 @@
+New Text Document.txt
+Prompt.txt
+my_ci_cd_app.zip
+gitgnore.txt

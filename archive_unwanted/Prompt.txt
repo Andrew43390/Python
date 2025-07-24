@@ -1,0 +1,19 @@
+This is he overall objective:
+
+Develop an automated CI/CD pipeline for integrating and building a Python project that incorporates code from an external Git repository. The pipeline should handle dependency management, code integration (supporting both simple file copies and Python packages), and executable creation using a packaging tool (setuptools or poetry preferred) or a custom build script, all without manual intervention. The pipeline should be robust and include comprehensive error handling.
+
+
+
+
+Summary for future reference:
+
+- Developed a Python script `push_workflow_to_github.py` to automate setting up a local workspace for CI/CD.
+- The script performs the following steps:
+  - Removes an existing local folder (`my_ci_cd_app`) to ensure a clean environment.
+  - Clones a Git repository into `C:\Users\james\Desktop\Network\my_ci_cd_app`.
+  - Checks out the `main` branch of the cloned repository.
+  - Prepares the folder for further development or CI/CD workflow operations.
+- The overall objective is to build an automated CI/CD pipeline for a Python project, supporting dependency management, code integration, and packaging without manual intervention.
+- The script ran successfully, confirming cloning and branch checkout with no errors.
+
+
