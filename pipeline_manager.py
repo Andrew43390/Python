@@ -111,33 +111,31 @@ jobs:
         f.write(test_dummy_py)
     logging.info(f"Created dummy test file at '{test_file_path}'")
 
+# === RUN SHELL COMMAND ===
+def run_cmd(cmd, cwd=None):
+    logging.info(f"> {' '.join(cmd)}")
+    result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    if result.returncode != 0:
+        logging.error(f"Error: {result.stderr.strip()}")
+        raise RuntimeError(f"Command {' '.join(cmd)} failed with code {result.returncode}")
+    return result.stdout.strip()
+
 # === PREPARE LOCAL GIT REPO FUNCTION ===
 def prepare_local_repo(repo_url, local_path, branch):
     if not os.path.exists(local_path):
         os.makedirs(local_path)
 
-    def run_cmd(cmd, cwd=None):
-        logging.info(f"> {' '.join(cmd)}")
-        result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
-        if result.returncode != 0:
-            logging.error(f"Error: {result.stderr.strip()}")
-            raise RuntimeError(f"Command {' '.join(cmd)} failed with code {result.returncode}")
-        return result.stdout.strip()
-
-    # Init or reinit git repo
     if not os.path.isdir(os.path.join(local_path, ".git")):
         run_cmd(["git", "init"], cwd=local_path)
     else:
         logging.info("Git repository already initialized.")
 
-    # Add remote if not exists
     remotes = run_cmd(["git", "remote"], cwd=local_path).splitlines()
     if "origin" not in remotes:
         run_cmd(["git", "remote", "add", "origin", repo_url], cwd=local_path)
     else:
         logging.info("Remote 'origin' already exists.")
 
-    # Fetch and checkout branch
     run_cmd(["git", "fetch"], cwd=local_path)
     branches = run_cmd(["git", "branch", "--list", branch], cwd=local_path)
     if not branches:
@@ -148,14 +146,6 @@ def prepare_local_repo(repo_url, local_path, branch):
 
 # === PUSH CHANGES FUNCTION ===
 def push_changes(local_path, commit_msg):
-    def run_cmd(cmd, cwd=None):
-        logging.info(f"> {' '.join(cmd)}")
-        result = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
-        if result.returncode != 0:
-            logging.error(f"Error: {result.stderr.strip()}")
-            raise RuntimeError(f"Command {' '.join(cmd)} failed with code {result.returncode}")
-        return result.stdout.strip()
-
     # Configure user if not set
     try:
         run_cmd(["git", "config", "user.name"], cwd=local_path)
@@ -166,15 +156,12 @@ def push_changes(local_path, commit_msg):
 
     run_cmd(["git", "add", "."], cwd=local_path)
 
-    # Check if there is anything to commit
     status = run_cmd(["git", "status", "--porcelain"], cwd=local_path)
     if not status:
         logging.info("No changes to commit.")
         return
 
     run_cmd(["git", "commit", "-m", commit_msg], cwd=local_path)
-
-    # Push branch to origin
     run_cmd(["git", "push", "-u", "origin", GIT_BRANCH], cwd=local_path)
     logging.info(f"Pushed changes to remote branch '{GIT_BRANCH}'.")
 
